@@ -10,7 +10,7 @@ public class ReportTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String startTime = TestUtils.now("dd.MMMM.yyyy hh.mm.ss aaa");
-		ReportUtil.startTesting(System.getProperty("user.dir")+"//src//Reports//index.html", startTime, "Test", "1.5");
+		ReportUtil.startTesting(System.getProperty("user.dir")+"//Reports//index.html", startTime, "Test", "1.5");
 
 		ReportUtil.startSuite("Suite1");
 
