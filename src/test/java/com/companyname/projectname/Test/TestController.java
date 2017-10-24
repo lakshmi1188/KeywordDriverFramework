@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.Assert;
@@ -32,7 +33,7 @@ public class TestController extends Resources{
 	public void TestCaseController() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
 		
 		String startTime = TestUtils.now("dd.MMMM.yyyy hh.mm.ss aaa");
-		ReportUtil.startTesting(System.getProperty("user.dir")+"//src//test//java//com//companyname//projectname//Reports//index.html", startTime, "Test", "1.5");
+		ReportUtil.startTesting(System.getProperty("user.dir")+"//Reports//index.html", startTime, "Test", "1.5");
 		ReportUtil.startSuite("Suite1");
 		String TCStatus="Pass";
 		
@@ -46,8 +47,8 @@ public class TestController extends Resources{
 			
 			if(RunMode.equals("Y")) {
 				String TSStatus="Pass";
-				
-				dr = new FirefoxDriver();
+				 System.setProperty("webdriver.chrome.driver", ".//chromedriver.exe");
+				dr = new ChromeDriver();
 				driver = new EventFiringWebDriver(dr);
 				driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 				
